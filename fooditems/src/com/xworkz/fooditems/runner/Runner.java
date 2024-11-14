@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 import com.xworkz.fooditems.EnumConnection.EnumConnetcion;
 
-
-
 public class Runner {
 
 	public static void main(String[] args) {
