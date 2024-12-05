@@ -8,19 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import lombok.NoArgsConstructor;
+
 @Entity
-
+@NoArgsConstructor
 @Table(name = "itemsdetails")
-
-@NamedQuery(name = "findById", query = "select it from itemsdetails it where it.price = 800000.23")
-
-
-
+@NamedQuery(name = "findAll", query = "select it from ItemsDTO it")
+@NamedQuery(name = "findById", query = "select it.name from ItemsDTO it where it.id = 29")
+@NamedQuery(name = "findByIdByName", query = "select it.price from ItemsDTO it where it.id = :id and it.name = :name")
+@NamedQuery(name = "findByIdByNameHardcoded", query = "select it.price from ItemsDTO it where it.id=31 and it.name = 'Fridge'")
+@NamedQuery(name = "getData", query = "select it.name from ItemsDTO it where it.id = :id")
 public class ItemsDTO {
+
 	
-	public ItemsDTO(int id, String name, double price) {
-		super();
-		this.id = id;
+	public ItemsDTO(  String name, double price) {
+	
 		this.name = name;
 		this.price = price;
 	}
@@ -58,6 +60,11 @@ public class ItemsDTO {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "ItemsDTO [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
 	
 	
