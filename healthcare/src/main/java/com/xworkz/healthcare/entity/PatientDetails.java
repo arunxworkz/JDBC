@@ -29,7 +29,25 @@ import lombok.NoArgsConstructor;
 
 @NamedQuery(name = "update", query = "update PatientDetails hc set hc.is_smoker = :is_smoker where hc.email= :email and hc.phno= :phno")
 
-@NamedQuery(name="updateByName&Email", query = "update PatientDetails hc set hc.weight= :weight where hc.patientname= :name and hc.phno= :phno")
+@NamedQuery(name= "updateByName&Email", query = "update PatientDetails hc set hc.weight= :weight where hc.patientname= :name and hc.phno= :phno")
+
+@NamedQuery(name = "getNameById", query = "select pd.patientname from PatientDetails pd where pd.id= :id")
+
+@NamedQuery(name = "getIdByName", query = "select pd.id from PatientDetails pd where pd.patientname= :patientname")
+
+@NamedQuery(name = "getBloodPressure", query = "select pd.blood_pressure from PatientDetails pd where pd.weight= :weight")
+
+@NamedQuery(name = "getWeight", query = "select pd.weight from PatientDetails pd where pd.age= :age")
+
+@NamedQuery(name = "getPhnonumberById", query = "select pd.phno from PatientDetails pd where pd.id= :id")
+
+@NamedQuery(name = "getSmokerByHeartRate", query = "select pd.is_smoker from PatientDetails pd where pd.heart_rate= :heart_rate")
+
+@NamedQuery(name = "getDateTimeByphno", query = "select pd.date_time from PatientDetails pd where pd.phno = :phno")
+
+@NamedQuery(name = "getGenderById&Name", query = "select pd.gender from PatientDetails pd where pd.id= :id and pd.patientname= :patientname")
+
+
 public class PatientDetails {
 
 	@Id
@@ -45,6 +63,7 @@ public class PatientDetails {
 	int age;
 	long phno;
 	boolean is_smoker;
+	char gender;
 	
 	
 	public PatientDetails(String patientname, String email, int heart_rate, double blood_pressure, float weight,
@@ -60,6 +79,7 @@ public class PatientDetails {
 		this.phno = phno;
 		this.is_smoker = is_smoker;
 	}
+	
 	
 	public int getId() {
 		return id;
@@ -121,6 +141,7 @@ public class PatientDetails {
 	public void setIs_smoker(boolean is_smoker) {
 		this.is_smoker = is_smoker;
 	}
+	
 
 	@Override
 	public String toString() {

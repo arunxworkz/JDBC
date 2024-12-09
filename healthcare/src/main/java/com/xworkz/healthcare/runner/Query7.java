@@ -20,6 +20,7 @@ public class Query7 {
 			Query query = em.createNamedQuery("deleteByByName&Age");
 			query.setParameter("name", "Arun");
 			query.setParameter("age", 26);
+			query.executeUpdate();
 			et.commit();
 		}catch(Exception e) {
 			e.printStackTrace();
