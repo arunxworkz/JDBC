@@ -1,6 +1,7 @@
 package com.xworkz.healthcare.runner;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,12 +15,32 @@ import com.xworkz.healthcare.service.PatientService;
 public class QuerymainRunner {
 
 	public static void main(String[] args) {
-		PatientDetails details = new PatientDetails("rana", "rana@gmail.com", 78, 115.4, 72.0f, LocalDateTime.now(), 35,
-				7483079910L, true);
 
 		PatientService patientService = new PatientDetailsServiceImpl();
-		patientService.save(details);
 
+		String str = patientService.getNameById(7);
+
+		System.out.println("string name ==" + str);
+		
+		System.out.println("------------------------------------------");
+		
+		long phNumber = patientService.getPhnoById(5);
+		System.out.println("This is from  main runner :"+phNumber);
+		
+		System.out.println("------------------------------------------");
+		
+		LocalDateTime time = patientService.getDateAndtimeByPhno(7483079911l);
+		System.out.println("The date time is: "+time);
+		
+		System.out.println("------------------------------------------");
+		
+		boolean smoke = patientService.getSmokerByHeartRate(88);
+		System.out.println("HE smokes: "+smoke);
+		
+		System.out.println("------------------------------------------");
+		
+		Object[] obj = (Object[]) patientService.getGenderAndName(8);
+		System.out.println("Gender and name is: "+obj.toString());
 	}
 
 }

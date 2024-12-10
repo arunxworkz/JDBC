@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 
 @NamedQuery(name= "updateByName&Email", query = "update PatientDetails hc set hc.weight= :weight where hc.patientname= :name and hc.phno= :phno")
 
-@NamedQuery(name = "getNameById", query = "select pd.patientname from PatientDetails pd where pd.id= :id")
+@NamedQuery(name = "getNameById", query = "select pd.patientname from PatientDetails pd where pd.id= : id")
 
 @NamedQuery(name = "getIdByName", query = "select pd.id from PatientDetails pd where pd.patientname= :patientname")
 
@@ -47,8 +47,35 @@ import lombok.NoArgsConstructor;
 
 @NamedQuery(name = "getGenderById&Name", query = "select pd.gender from PatientDetails pd where pd.id= :id and pd.patientname= :patientname")
 
+@NamedQuery(name = "getLocalDateByPhno", query = "select pd.date_time from PatientDetails pd where pd.phno= :phno")
+
+@NamedQuery(name = "getGender&NameById", query = "select pd.gender, pd.patientname from PatientDetails pd where pd.id= :id")
+
 
 public class PatientDetails {
+
+
+
+
+	public long getPhno() {
+		return phno;
+	}
+
+
+	public void setPhno(long phno) {
+		this.phno = phno;
+	}
+
+
+	public Character getGender() {
+		return gender;
+	}
+
+
+	public void setGender(Character gender) {
+		this.gender = gender;
+	}
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,7 +90,7 @@ public class PatientDetails {
 	int age;
 	long phno;
 	boolean is_smoker;
-	char gender;
+	Character gender;
 	
 	
 	public PatientDetails(String patientname, String email, int heart_rate, double blood_pressure, float weight,
@@ -147,7 +174,7 @@ public class PatientDetails {
 	public String toString() {
 		return "PatientDetails [id=" + id + ", patientname=" + patientname + ", email=" + email + ", heart_rate="
 				+ heart_rate + ", blood_pressure=" + blood_pressure + ", weight=" + weight + ", date_time=" + date_time
-				+ ", age=" + age + ", steps_walked=" + phno + ", is_smoker=" + is_smoker + "]";
+				+ ", age=" + age + ", phno=" + phno + ", is_smoker=" + is_smoker + ", gender=" + gender + "]";
 	}
 	
 }
