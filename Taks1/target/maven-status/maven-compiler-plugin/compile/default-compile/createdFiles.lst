@@ -1,0 +1,6 @@
+com\xworkz\task1\entity\PersonDetailsEntity.class
+com\xworkz\task1\repository\PersonDetailsRepo.class
+com\xworkz\task1\service\PersonDetailsService.class
+com\xworkz\task1\repository\PersonDetailsRepoImpl.class
+com\xworkz\task1\runner\Runner.class
+com\xworkz\task1\service\PersonDetailsServiceImpl.class
