@@ -1,0 +1,9 @@
+com\xworkz\criminaldb\dto\CriminalDTO.class
+com\xworkz\criminaldb\service\CriminalService.class
+com\xworkz\criminaldb\configuration\Configure.class
+com\xworkz\criminaldb\configuration\Initilizer.class
+com\xworkz\criminaldb\service\CriminalServiceImpl.class
+com\xworkz\criminaldb\repository\CriminalRepoImpl.class
+com\xworkz\criminaldb\repository\CriminalRepository.class
+com\xworkz\criminaldb\controller\CriminalController.class
+com\xworkz\criminaldb\entity\CriminalEntity.class
